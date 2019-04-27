@@ -186,6 +186,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveDiaryEntry:" destination="yOf-oH-iNg" eventType="touchUpInside" id="lGS-Gz-pEk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -204,6 +207,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1KN-cA-KmH"/>
                     </view>
+                    <connections>
+                        <outlet property="diaryEntryDate" destination="QAS-fv-38c" id="xok-9j-guz"/>
+                        <outlet property="diaryEntryDetails" destination="MyM-Zn-49M" id="W22-HU-nQU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3j-tR-g5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

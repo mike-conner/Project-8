@@ -11,4 +11,23 @@ import CoreData
 
 class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
+    @IBOutlet weak var diaryEntryDate: UILabel!
+    @IBOutlet weak var diaryEntryDetails: UITextView!
+    
+    override func viewDidLoad() {
+        getDate()
+    }
+    
+    @IBAction func saveDiaryEntry(_ sender: Any) {
+        
+    }
+    
+    func getDate() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        let todaysDate = formatter.string(from: Date())
+        diaryEntryDate.text = todaysDate
+    }
+    
+    
 }
