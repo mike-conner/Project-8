@@ -16,6 +16,7 @@ class DiaryEntryCell: UITableViewCell {
     
     @IBOutlet weak var diaryEntryDateLabel: UILabel!
     @IBOutlet weak var diaryEntryDetailsLabel: UILabel!
+    @IBOutlet weak var diaryEntryCreatedOrModifiedOnDateLabel: UILabel!
     
     
 }

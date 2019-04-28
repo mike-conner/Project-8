@@ -27,7 +27,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 600
+        tableView.estimatedRowHeight = 200
 
     }
 
@@ -37,7 +37,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     @IBAction func unwindFromDetail(segue: UIStoryboardSegue) {
-        
     }
 
     @objc
@@ -75,7 +74,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "diaryEntryCell", for: indexPath) as! DiaryEntryCell
         let event = fetchedResultsController.object(at: indexPath)
         //configureCell(cell, withEvent: event)
-        cell.diaryEntryDateLabel.text = stringFromDate(event.diaryEntryDate! as Date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        var date = formatter.string(from: event.diaryEntryDate! as Date)
+        cell.diaryEntryDateLabel.text = date
+        date = formatter.string(from: event.diaryEntryCreatedOrModifiedOnDate! as Date)
+        cell.diaryEntryCreatedOrModifiedOnDateLabel.text = date
         cell.diaryEntryDetailsLabel.text = event.diaryEntryDetails
         return cell
     }

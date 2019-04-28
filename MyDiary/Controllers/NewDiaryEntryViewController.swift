@@ -18,6 +18,7 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
     
     override func viewDidLoad() {
         getDate()
+        diaryEntryDetails.becomeFirstResponder()
     }
     
     @IBAction func saveDiaryEntry(_ sender: Any) {
