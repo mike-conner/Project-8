@@ -73,14 +73,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "diaryEntryCell", for: indexPath) as! DiaryEntryCell
         let event = fetchedResultsController.object(at: indexPath)
-        //configureCell(cell, withEvent: event)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMM d, yyyy"
-        var date = formatter.string(from: event.diaryEntryDate! as Date)
-        cell.diaryEntryDateLabel.text = date
-        date = formatter.string(from: event.diaryEntryCreatedOrModifiedOnDate! as Date)
-        cell.diaryEntryCreatedOrModifiedOnDateLabel.text = date
-        cell.diaryEntryDetailsLabel.text = event.diaryEntryDetails
+        
+        configureCell(cell, withEvent: event)
+        
         return cell
     }
 
@@ -103,7 +98,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(_ cell: UITableViewCell, withEvent event: DiaryEntry) {
-        cell.textLabel!.text = event.diaryEntryDetails?.description
+        
+        let configuredCell = cell as! DiaryEntryCell
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        var date = formatter.string(from: event.diaryEntryDate! as Date)
+        
+        configuredCell.diaryEntryDateLabel.text = date
+        date = formatter.string(from: event.diaryEntryCreatedOrModifiedOnDate! as Date)
+        configuredCell.diaryEntryCreatedOrModifiedOnDateLabel.text = date
+        configuredCell.diaryEntryDetailsLabel.text = event.diaryEntryDetails
         
     }
 
@@ -184,14 +189,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return formatter.string(from: date)
     }
 
-    /*
+    
      // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
      
-     func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(controller: NSFetchedResultsController<NSFetchRequestResult>) {
          // In the simplest, most efficient, case, reload the table view.
          tableView.reloadData()
      }
-     */
+     
 
 }
 

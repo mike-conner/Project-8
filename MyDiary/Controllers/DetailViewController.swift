@@ -7,34 +7,60 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    @IBOutlet weak var diaryEntryDateLabel: UILabel!
+    @IBOutlet weak var diaryEntryDetailsTextView: UITextView!
+    
+    @IBAction func saveDiaryEntry(_ sender: Any) {
+        updateDiaryEntry()
+    }
 
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.diaryEntryDetails!.description
+            if let date = diaryEntryDateLabel {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEEE, MMM d, yyyy"
+                let tempDate = formatter.string(from: detail.diaryEntryDate! as Date)
+                date.text = tempDate
+            }
+            if let details = diaryEntryDetailsTextView {
+                details.text = detail.diaryEntryDetails!.description
             }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         configureView()
     }
 
     var detailItem: DiaryEntry? {
         didSet {
-            // Update the view.
             configureView()
         }
     }
 
+    func updateDiaryEntry() {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        
+        do {
+            detailItem?.setValue(diaryEntryDetailsTextView.text, forKey: "diaryEntryDetails")
+            detailItem?.setValue(Date(), forKey: "diaryEntryCreatedOrModifiedOnDate")
+            dismiss(animated: true, completion: nil)
+            do {
+                try managedContext.save()
+            } catch {
+                print(error)
+            }
+        }
+    }
 
 }
 
