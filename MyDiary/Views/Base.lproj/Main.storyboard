@@ -78,12 +78,12 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="MyDiary" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="diaryEntryCell" rowHeight="200" id="WCw-Qf-5nD" customClass="DiaryEntryCell" customModule="MyDiary" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="diaryEntryCell" id="WCw-Qf-5nD" customClass="DiaryEntryCell" customModule="MyDiary" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
@@ -99,7 +99,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR9-dd-pk8">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR9-dd-pk8">
                                             <rect key="frame" x="28" y="48" width="358" height="133"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -118,8 +118,10 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="diaryEntryDateLabel" destination="g9h-zo-zbF" id="EIG-Et-Twp"/>
+                                    <outlet property="diaryEntryDetailsLabel" destination="jR9-dd-pk8" id="h8X-az-vda"/>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
-                                    <segue destination="yOf-oH-iNg" kind="show" identifier="addNewDiaryEntry" trigger="accessoryAction" id="TrE-Np-LVJ"/>
+                                    <segue destination="yOf-oH-iNg" kind="presentation" identifier="addNewDiaryEntry" trigger="accessoryAction" id="TrE-Np-LVJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -144,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;diary entry date&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAS-fv-38c">
-                                <rect key="frame" x="8" y="108" width="398" height="30"/>
+                                <rect key="frame" x="8" y="64" width="398" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aVo-BM-kO3"/>
                                 </constraints>
@@ -153,7 +155,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Details:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv7-yK-vdE">
-                                <rect key="frame" x="8" y="178" width="398" height="20"/>
+                                <rect key="frame" x="8" y="134" width="398" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="2f7-gn-i7e"/>
                                 </constraints>
@@ -162,7 +164,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MyM-Zn-49M">
-                                <rect key="frame" x="8" y="206" width="398" height="250"/>
+                                <rect key="frame" x="8" y="162" width="398" height="250"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="usb-1F-vgv"/>
@@ -171,10 +173,10 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhs-Qb-Ond">
-                                <rect key="frame" x="167" y="476" width="80" height="45"/>
+                                <rect key="frame" x="167" y="432" width="80" height="45"/>
                                 <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="KJW-VP-s2I"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="KJW-VP-s2I"/>
                                     <constraint firstAttribute="height" constant="45" id="Qp1-T5-Dt3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
@@ -214,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3j-tR-g5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="-630"/>
+            <point key="canvasLocation" x="1461" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">

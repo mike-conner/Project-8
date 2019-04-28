@@ -14,4 +14,8 @@ class DiaryEntryCell: UITableViewCell {
     var diaryEntryCreatedOrModifiedOnDate: String = ""
     var diaryEntryDetails: String = ""
     
+    @IBOutlet weak var diaryEntryDateLabel: UILabel!
+    @IBOutlet weak var diaryEntryDetailsLabel: UILabel!
+    
+    
 }

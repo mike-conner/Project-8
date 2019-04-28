@@ -13,8 +13,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,33 +25,24 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 600
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
+    
+    @IBAction func unwindFromDetail(segue: UIStoryboardSegue) {
+        
+    }
 
     @objc
     func insertNewObject(_ sender: Any) {
-        
         performSegue(withIdentifier: "addNewDiaryEntry", sender: self)
-        
-//        let context = self.fetchedResultsController.managedObjectContext
-//        let newEvent = DiaryEntry(context: context)
-//
-//        // If appropriate, configure the new managed object.
-//        newEvent.diaryEntryDetails = String()
-//
-//        // Save the context.
-//        do {
-//            try context.save()
-//        } catch {
-//            // Replace this implementation with code to handle the error appropriately.
-//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//            let nserror = error as NSError
-//            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//        }
     }
 
     // MARK: - Segues
@@ -82,9 +72,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "diaryEntryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "diaryEntryCell", for: indexPath) as! DiaryEntryCell
         let event = fetchedResultsController.object(at: indexPath)
-        configureCell(cell, withEvent: event)
+        //configureCell(cell, withEvent: event)
+        cell.diaryEntryDateLabel.text = stringFromDate(event.diaryEntryDate! as Date)
+        cell.diaryEntryDetailsLabel.text = event.diaryEntryDetails
         return cell
     }
 
@@ -180,6 +172,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+    }
+    
+    func stringFromDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy HH:mm" //yyyy
+        return formatter.string(from: date)
     }
 
     /*

@@ -14,12 +14,14 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
     @IBOutlet weak var diaryEntryDate: UILabel!
     @IBOutlet weak var diaryEntryDetails: UITextView!
     
+    
+    
     override func viewDidLoad() {
         getDate()
     }
     
     @IBAction func saveDiaryEntry(_ sender: Any) {
-        
+        saveDiaryEntry()
     }
     
     func getDate() {
@@ -28,6 +30,24 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
         let todaysDate = formatter.string(from: Date())
         diaryEntryDate.text = todaysDate
     }
+
     
-    
+    func saveDiaryEntry() {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        guard let diaryEntryEntity = NSEntityDescription.entity(forEntityName: "DiaryEntry", in: managedContext) else { return }
+        let diaryEntry = NSManagedObject(entity: diaryEntryEntity, insertInto: managedContext)
+        diaryEntry.setValue(diaryEntryDetails.text, forKeyPath: "diaryEntryDetails")
+        diaryEntry.setValue(Date(), forKeyPath: "diaryEntryDate")
+        diaryEntry.setValue(Date(), forKeyPath: "diaryEntryCreatedOrModifiedOnDate")
+        
+        do {
+            try managedContext.save()
+            dismiss(animated: true, completion: nil)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+    }
 }
