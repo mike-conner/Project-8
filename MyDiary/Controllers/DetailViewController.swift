@@ -34,7 +34,6 @@ class DetailViewController: UIViewController {
     }
     
     func configureView() {
-        // Update the user interface for the detail item.
         if let detail = detailItem {
             if let date = diaryEntryDateLabel {
                 let formatter = DateFormatter()
@@ -51,7 +50,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-//        diaryEntryDetailsTextView.isEditable = false
     }
 
     var detailItem: DiaryEntry? {

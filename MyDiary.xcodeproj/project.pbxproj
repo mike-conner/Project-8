@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		138E36A72277C25600AC33BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138E36A62277C25600AC33BF /* Extensions.swift */; };
 		13E495C52274EECD00A4F431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E495C42274EECD00A4F431 /* AppDelegate.swift */; };
 		13E495C82274EECD00A4F431 /* MyDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13E495C62274EECD00A4F431 /* MyDiary.xcdatamodeld */; };
 		13E495CA2274EECD00A4F431 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E495C92274EECD00A4F431 /* MasterViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		138E36A62277C25600AC33BF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		13E495C12274EECD00A4F431 /* MyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E495C42274EECD00A4F431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13E495C72274EECD00A4F431 /* MyDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyDiary.xcdatamodel; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		13E495DB2274EF1800A4F431 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				138E36A62277C25600AC33BF /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13E495E82274F71600A4F431 /* NewDiaryEntryViewController.swift in Sources */,
+				138E36A72277C25600AC33BF /* Extensions.swift in Sources */,
 				13E495E62274F33F00A4F431 /* DiaryEntryCell.swift in Sources */,
 				13E495E42274F0A700A4F431 /* DiaryEntry+CoreDataProperties.swift in Sources */,
 				13E495C52274EECD00A4F431 /* AppDelegate.swift in Sources */,
