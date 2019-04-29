@@ -13,16 +13,20 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
     
     @IBOutlet weak var diaryEntryDate: UILabel!
     @IBOutlet weak var diaryEntryDetails: UITextView!
+    @IBOutlet weak var cancelNewDiaryEntryButton: UIBarButtonItem!
+    @IBOutlet weak var saveNewDiaryEntryButton: UIBarButtonItem!
     
-    
+    @IBAction func saveNewDiaryEntryButton(_ sender: Any) {
+        if diaryEntryDetails.text == "" {
+            showAlert(with: "Sorry", and: "You must enter your Entry Details to be able to save.")
+            return
+        }
+        saveDiaryEntry()
+    }
     
     override func viewDidLoad() {
         getDate()
         diaryEntryDetails.becomeFirstResponder()
-    }
-    
-    @IBAction func saveDiaryEntry(_ sender: Any) {
-        saveDiaryEntry()
     }
     
     func getDate() {
@@ -34,7 +38,6 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
 
     
     func saveDiaryEntry() {
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         guard let diaryEntryEntity = NSEntityDescription.entity(forEntityName: "DiaryEntry", in: managedContext) else { return }

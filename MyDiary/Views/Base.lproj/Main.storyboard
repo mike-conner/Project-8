@@ -43,37 +43,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUB-1V-tSQ">
-                                <rect key="frame" x="8" y="206" width="398" height="250"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUB-1V-tSQ">
+                                <rect key="frame" x="8" y="206" width="398" height="150"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="4Uc-Xr-YoE"/>
+                                    <constraint firstAttribute="height" constant="150" id="4Uc-Xr-YoE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbW-ct-5ra">
-                                <rect key="frame" x="167" y="476" width="80" height="45"/>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="56t-mb-PkJ"/>
-                                    <constraint firstAttribute="height" constant="45" id="ngj-ka-xtY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Enter">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveDiaryEntry:" destination="yOf-oH-iNg" eventType="touchUpInside" id="CO2-kU-U0y"/>
-                                    <action selector="saveDiaryEntry:" destination="JEX-9P-axG" eventType="touchUpInside" id="d3z-L8-9gd"/>
-                                    <segue destination="9QA-Y7-qVz" kind="unwind" unwindAction="unwindFromDetailWithSegue:" id="CKH-a4-YE6"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;diary entry date&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFF-QO-8AL">
                                 <rect key="frame" x="8" y="108" width="398" height="30"/>
                                 <constraints>
@@ -93,18 +71,24 @@
                             <constraint firstItem="PuF-th-pHE" firstAttribute="top" secondItem="GFF-QO-8AL" secondAttribute="bottom" constant="40" id="6Bp-Bt-crR"/>
                             <constraint firstItem="GFF-QO-8AL" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="20" id="EAb-aR-woa"/>
                             <constraint firstItem="vUB-1V-tSQ" firstAttribute="top" secondItem="PuF-th-pHE" secondAttribute="bottom" constant="8" id="VXS-yo-h3i"/>
-                            <constraint firstItem="YbW-ct-5ra" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="WMW-5K-aIJ"/>
                             <constraint firstItem="GFF-QO-8AL" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="8" id="gmh-9a-YbZ"/>
                             <constraint firstItem="vUB-1V-tSQ" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="8" id="ooy-mF-NHW"/>
-                            <constraint firstItem="YbW-ct-5ra" firstAttribute="top" secondItem="vUB-1V-tSQ" secondAttribute="bottom" constant="20" id="xiI-2C-TSh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="MyDiary Entry" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="EWa-03-70A">
+                            <connections>
+                                <action selector="editEntryButton:" destination="JEX-9P-axG" id="T11-tl-7Jq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="diaryEntryDateLabel" destination="GFF-QO-8AL" id="bgw-6y-BzQ"/>
                         <outlet property="diaryEntryDetailsTextView" destination="vUB-1V-tSQ" id="l4B-ia-Bax"/>
+                        <outlet property="editDiaryEntryButton" destination="EWa-03-70A" id="DzJ-wB-Uve"/>
+                        <segue destination="9QA-Y7-qVz" kind="unwind" identifier="finishedSaving" unwindAction="unwindFromDetailWithSegue:" id="LbF-lU-fxG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -224,8 +208,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5t2-wh-e1P">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Diary Entry" id="v6N-Z6-hcI">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xZk-Wn-ghc">
+                                            <connections>
+                                                <segue destination="2io-X9-WKA" kind="unwind" unwindAction="unwindFromDetailWithSegue:" id="EZU-GN-rK1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Dbw-6A-ILC">
+                                            <connections>
+                                                <action selector="saveNewDiaryEntryButton:" destination="yOf-oH-iNg" id="mTz-co-I9F"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;diary entry date&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAS-fv-38c">
-                                <rect key="frame" x="8" y="64" width="398" height="30"/>
+                                <rect key="frame" x="8" y="108" width="398" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aVo-BM-kO3"/>
                                 </constraints>
@@ -234,7 +235,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Details:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv7-yK-vdE">
-                                <rect key="frame" x="8" y="134" width="398" height="20"/>
+                                <rect key="frame" x="8" y="178" width="398" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="2f7-gn-i7e"/>
                                 </constraints>
@@ -243,44 +244,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MyM-Zn-49M">
-                                <rect key="frame" x="8" y="162" width="398" height="250"/>
+                                <rect key="frame" x="8" y="206" width="398" height="150"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="usb-1F-vgv"/>
+                                    <constraint firstAttribute="height" constant="150" id="usb-1F-vgv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhs-Qb-Ond">
-                                <rect key="frame" x="167" y="432" width="80" height="45"/>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="KJW-VP-s2I"/>
-                                    <constraint firstAttribute="height" constant="45" id="Qp1-T5-Dt3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
-                                <state key="normal" title="Enter">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveDiaryEntry:" destination="yOf-oH-iNg" eventType="touchUpInside" id="lGS-Gz-pEk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Yhs-Qb-Ond" firstAttribute="top" secondItem="MyM-Zn-49M" secondAttribute="bottom" constant="20" id="73M-Ca-poG"/>
+                            <constraint firstItem="5t2-wh-e1P" firstAttribute="top" secondItem="1KN-cA-KmH" secondAttribute="top" id="0Kb-xH-MeN"/>
                             <constraint firstItem="MyM-Zn-49M" firstAttribute="leading" secondItem="1KN-cA-KmH" secondAttribute="leading" constant="8" id="8Ac-at-K1z"/>
+                            <constraint firstItem="5t2-wh-e1P" firstAttribute="centerX" secondItem="QAS-fv-38c" secondAttribute="centerX" id="CMz-T2-n5Y"/>
                             <constraint firstItem="1KN-cA-KmH" firstAttribute="trailing" secondItem="MyM-Zn-49M" secondAttribute="trailing" constant="8" id="FwI-8i-kKT"/>
                             <constraint firstItem="MyM-Zn-49M" firstAttribute="top" secondItem="Bv7-yK-vdE" secondAttribute="bottom" constant="8" id="Lcn-qf-ylT"/>
-                            <constraint firstItem="1KN-cA-KmH" firstAttribute="trailing" secondItem="QAS-fv-38c" secondAttribute="trailing" constant="8" id="QG5-uz-heQ"/>
-                            <constraint firstItem="QAS-fv-38c" firstAttribute="top" secondItem="1KN-cA-KmH" secondAttribute="top" constant="20" id="SSy-a2-Ypj"/>
-                            <constraint firstItem="Yhs-Qb-Ond" firstAttribute="centerX" secondItem="zf5-Ti-cyG" secondAttribute="centerX" id="X3O-LA-u6K"/>
+                            <constraint firstItem="1KN-cA-KmH" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="QAS-fv-38c" secondAttribute="trailing" constant="8" id="QG5-uz-heQ"/>
+                            <constraint firstItem="5t2-wh-e1P" firstAttribute="leading" secondItem="zf5-Ti-cyG" secondAttribute="leading" id="R8s-Uq-qgy"/>
+                            <constraint firstItem="QAS-fv-38c" firstAttribute="top" secondItem="5t2-wh-e1P" secondAttribute="bottom" constant="20" id="SSy-a2-Ypj"/>
                             <constraint firstItem="1KN-cA-KmH" firstAttribute="trailing" secondItem="Bv7-yK-vdE" secondAttribute="trailing" constant="8" id="YWg-8U-HIL"/>
                             <constraint firstItem="Bv7-yK-vdE" firstAttribute="leading" secondItem="1KN-cA-KmH" secondAttribute="leading" constant="8" id="gnu-UZ-cSe"/>
                             <constraint firstItem="Bv7-yK-vdE" firstAttribute="top" secondItem="QAS-fv-38c" secondAttribute="bottom" constant="40" id="iS9-V9-VJO"/>
@@ -289,11 +271,13 @@
                         <viewLayoutGuide key="safeArea" id="1KN-cA-KmH"/>
                     </view>
                     <connections>
+                        <outlet property="cancelNewDiaryEntryButton" destination="xZk-Wn-ghc" id="NyT-SQ-KKk"/>
                         <outlet property="diaryEntryDate" destination="QAS-fv-38c" id="xok-9j-guz"/>
                         <outlet property="diaryEntryDetails" destination="MyM-Zn-49M" id="W22-HU-nQU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3j-tR-g5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2io-X9-WKA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1506" y="129"/>
         </scene>

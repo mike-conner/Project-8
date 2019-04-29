@@ -13,11 +13,26 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var diaryEntryDateLabel: UILabel!
     @IBOutlet weak var diaryEntryDetailsTextView: UITextView!
+    @IBOutlet weak var saveDiaryEntryButton: UIButton!
+    @IBOutlet weak var editDiaryEntryButton: UIBarButtonItem!
     
-    @IBAction func saveDiaryEntry(_ sender: Any) {
-        updateDiaryEntry()
-    }
+    var editState: Bool = false
 
+    @IBAction func editEntryButton(_ sender: Any) {
+        if editState == false {
+            diaryEntryDetailsTextView.isEditable = true
+            diaryEntryDetailsTextView.becomeFirstResponder()
+            editDiaryEntryButton.title = "Save"
+            editState = true
+        } else {
+            self.performSegue(withIdentifier: "finishedSaving", sender: self)
+            updateDiaryEntry()
+            diaryEntryDetailsTextView.isEditable = false
+            editDiaryEntryButton.title = "Edit"
+            editState = false
+        }
+    }
+    
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
@@ -36,6 +51,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+//        diaryEntryDetailsTextView.isEditable = false
     }
 
     var detailItem: DiaryEntry? {
