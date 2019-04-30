@@ -53,7 +53,6 @@ class DetailViewController: UIViewController {
         do {
             detailItem?.setValue(diaryEntryDetailsTextView.text, forKey: "diaryEntryDetails")
             detailItem?.setValue(Date(), forKey: "diaryEntryCreatedOrModifiedOnDate")
-            dismiss(animated: true, completion: nil)
             do {
                 try managedContext.save()
             } catch {

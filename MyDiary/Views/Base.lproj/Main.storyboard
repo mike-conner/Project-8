@@ -71,6 +71,7 @@
                                 <connections>
                                     <action selector="saveDiaryEntry:" destination="yOf-oH-iNg" eventType="touchUpInside" id="CO2-kU-U0y"/>
                                     <action selector="saveDiaryEntry:" destination="JEX-9P-axG" eventType="touchUpInside" id="d3z-L8-9gd"/>
+                                    <segue destination="9QA-Y7-qVz" kind="unwind" unwindAction="unwindFromDetailWithSegue:" id="CKH-a4-YE6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;diary entry date&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFF-QO-8AL">
@@ -107,6 +108,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
+                <exit id="9QA-Y7-qVz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
         </scene>
@@ -208,7 +210,7 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="MyDiary" id="Zdf-7t-Un8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
