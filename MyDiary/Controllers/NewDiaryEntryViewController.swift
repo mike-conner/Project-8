@@ -14,7 +14,6 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
     @IBOutlet weak var diaryEntryDate: UILabel!
     @IBOutlet weak var diaryEntryDetails: UITextView!
     @IBOutlet weak var cancelNewDiaryEntryButton: UIBarButtonItem!
-    @IBOutlet weak var saveNewDiaryEntryButton: UIBarButtonItem!
     
     @IBAction func saveNewDiaryEntryButton(_ sender: Any) {
         if diaryEntryDetails.text == "" {
@@ -22,6 +21,10 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
             return
         }
         saveDiaryEntry()
+    }
+    
+    @IBAction func addLocationButton(_ sender: Any) {
+        performSegue(withIdentifier: "goToLocationViewController", sender: self)
     }
     
     override func viewDidLoad() {
