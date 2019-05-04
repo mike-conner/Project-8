@@ -215,6 +215,7 @@
                                     <outlet property="diaryEntryCreatedOrModifiedOnDateLabel" destination="XY6-sv-huq" id="crt-hu-kCW"/>
                                     <outlet property="diaryEntryDateLabel" destination="g9h-zo-zbF" id="EIG-Et-Twp"/>
                                     <outlet property="diaryEntryDetailsLabel" destination="jR9-dd-pk8" id="h8X-az-vda"/>
+                                    <outlet property="diaryEntryLocationLabel" destination="zE0-uG-0dw" id="KfV-pN-khm"/>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
                                     <segue destination="yOf-oH-iNg" kind="presentation" identifier="addNewDiaryEntry" trigger="accessoryAction" id="TrE-Np-LVJ"/>
                                 </connections>
@@ -284,21 +285,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDE-7K-R70">
-                                <rect key="frame" x="16" y="372" width="382" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uDE-7K-R70">
+                                <rect key="frame" x="107" y="372" width="291" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="LOV-pr-SPJ"/>
+                                    <constraint firstAttribute="height" constant="24" id="LOV-pr-SPJ"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="add location"/>
                                 <connections>
-                                    <action selector="addLocationButton:" destination="yOf-oH-iNg" eventType="touchUpInside" id="RQb-Gj-n5I"/>
                                     <segue destination="A02-nE-iR0" kind="show" identifier="goToLocationViewController" id="njD-Ya-xfZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqx-TQ-oIr">
+                                <rect key="frame" x="8" y="372" width="83" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="zrP-Eb-vfL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5t2-wh-e1P" firstAttribute="top" secondItem="1KN-cA-KmH" secondAttribute="top" id="0Kb-xH-MeN"/>
+                            <constraint firstItem="Gqx-TQ-oIr" firstAttribute="top" secondItem="MyM-Zn-49M" secondAttribute="bottom" constant="16" id="0NA-rz-2aL"/>
                             <constraint firstItem="MyM-Zn-49M" firstAttribute="leading" secondItem="1KN-cA-KmH" secondAttribute="leading" constant="8" id="8Ac-at-K1z"/>
                             <constraint firstItem="5t2-wh-e1P" firstAttribute="centerX" secondItem="QAS-fv-38c" secondAttribute="centerX" id="CMz-T2-n5Y"/>
                             <constraint firstItem="1KN-cA-KmH" firstAttribute="trailing" secondItem="uDE-7K-R70" secondAttribute="trailing" constant="16" id="FZV-jM-0wi"/>
@@ -307,16 +318,18 @@
                             <constraint firstItem="1KN-cA-KmH" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="QAS-fv-38c" secondAttribute="trailing" constant="8" id="QG5-uz-heQ"/>
                             <constraint firstItem="5t2-wh-e1P" firstAttribute="leading" secondItem="zf5-Ti-cyG" secondAttribute="leading" id="R8s-Uq-qgy"/>
                             <constraint firstItem="QAS-fv-38c" firstAttribute="top" secondItem="5t2-wh-e1P" secondAttribute="bottom" constant="20" id="SSy-a2-Ypj"/>
+                            <constraint firstItem="uDE-7K-R70" firstAttribute="leading" secondItem="Gqx-TQ-oIr" secondAttribute="trailing" constant="16" id="Uzl-cU-AFo"/>
                             <constraint firstItem="1KN-cA-KmH" firstAttribute="trailing" secondItem="Bv7-yK-vdE" secondAttribute="trailing" constant="8" id="YWg-8U-HIL"/>
                             <constraint firstItem="Bv7-yK-vdE" firstAttribute="leading" secondItem="1KN-cA-KmH" secondAttribute="leading" constant="8" id="gnu-UZ-cSe"/>
                             <constraint firstItem="Bv7-yK-vdE" firstAttribute="top" secondItem="QAS-fv-38c" secondAttribute="bottom" constant="40" id="iS9-V9-VJO"/>
-                            <constraint firstItem="uDE-7K-R70" firstAttribute="leading" secondItem="1KN-cA-KmH" secondAttribute="leading" constant="16" id="s0C-6F-4yl"/>
+                            <constraint firstItem="Gqx-TQ-oIr" firstAttribute="leading" secondItem="zf5-Ti-cyG" secondAttribute="leading" constant="8" id="mfF-Pu-Ibp"/>
                             <constraint firstItem="uDE-7K-R70" firstAttribute="top" secondItem="MyM-Zn-49M" secondAttribute="bottom" constant="16" id="vJt-7C-dmb"/>
                             <constraint firstItem="QAS-fv-38c" firstAttribute="leading" secondItem="1KN-cA-KmH" secondAttribute="leading" constant="8" id="vYb-JK-ZDN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1KN-cA-KmH"/>
                     </view>
                     <connections>
+                        <outlet property="addLocationButton" destination="uDE-7K-R70" id="AiM-Ga-2X9"/>
                         <outlet property="cancelNewDiaryEntryButton" destination="xZk-Wn-ghc" id="NyT-SQ-KKk"/>
                         <outlet property="diaryEntryDate" destination="QAS-fv-38c" id="xok-9j-guz"/>
                         <outlet property="diaryEntryDetails" destination="MyM-Zn-49M" id="W22-HU-nQU"/>
@@ -385,19 +398,39 @@
                                     <outlet property="delegate" destination="VIu-vp-1el" id="MRz-Qc-9bd"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJB-Os-2dz">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="BtY-wI-UHq"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveLocationButton:" destination="VIu-vp-1el" eventType="touchUpInside" id="8Dm-aE-Ea7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="KDR-Ra-55J" firstAttribute="trailing" secondItem="2h8-3e-onk" secondAttribute="trailing" id="2zO-HG-NTd"/>
                             <constraint firstItem="2h8-3e-onk" firstAttribute="leading" secondItem="KDR-Ra-55J" secondAttribute="leading" id="6xL-LL-pyV"/>
                             <constraint firstItem="KDR-Ra-55J" firstAttribute="trailing" secondItem="2h8-3e-onk" secondAttribute="trailing" id="8MI-nI-zK5"/>
+                            <constraint firstItem="KDR-Ra-55J" firstAttribute="bottom" secondItem="tJB-Os-2dz" secondAttribute="bottom" constant="16" id="Bs0-TD-Zfx"/>
+                            <constraint firstItem="KDR-Ra-55J" firstAttribute="trailing" secondItem="tJB-Os-2dz" secondAttribute="trailing" constant="16" id="RQ2-aq-WOo"/>
                             <constraint firstItem="2h8-3e-onk" firstAttribute="leading" secondItem="KDR-Ra-55J" secondAttribute="leading" id="af0-HH-91w"/>
                             <constraint firstItem="2h8-3e-onk" firstAttribute="top" secondItem="ody-Q8-4nP" secondAttribute="top" id="rJY-PO-xko"/>
+                            <constraint firstItem="tJB-Os-2dz" firstAttribute="leading" secondItem="KDR-Ra-55J" secondAttribute="leading" constant="16" id="vII-Cl-e3t"/>
                             <constraint firstAttribute="bottom" secondItem="2h8-3e-onk" secondAttribute="bottom" id="yYu-qk-JCE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KDR-Ra-55J"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8V6-7M-r4T"/>
+                    <navigationItem key="navigationItem" id="8V6-7M-r4T">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="chC-mq-6zN">
+                            <connections>
+                                <action selector="backButton:" destination="VIu-vp-1el" id="Vq4-NB-qhz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="2h8-3e-onk" id="I8y-Ke-dgj"/>
                     </connections>

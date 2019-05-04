@@ -109,7 +109,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         date = formatter.string(from: event.diaryEntryCreatedOrModifiedOnDate! as Date)
         configuredCell.diaryEntryCreatedOrModifiedOnDateLabel.text = date
         configuredCell.diaryEntryDetailsLabel.text = event.diaryEntryDetails
-        
+        configuredCell.diaryEntryLocationLabel.text = event.diaryEntryLocation
     }
 
     // MARK: - Fetched results controller

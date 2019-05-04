@@ -11,3 +11,7 @@ import MapKit
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark: MKPlacemark)
 }
+
+protocol LocationDelegate: AnyObject {
+    func getLocation(placemark: String)
+}

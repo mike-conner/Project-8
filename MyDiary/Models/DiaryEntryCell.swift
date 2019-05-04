@@ -13,10 +13,12 @@ class DiaryEntryCell: UITableViewCell {
     var diaryEntryDate: String = ""
     var diaryEntryCreatedOrModifiedOnDate: String = ""
     var diaryEntryDetails: String = ""
+    var diaryEntryLocation: String = ""
     
     @IBOutlet weak var diaryEntryDateLabel: UILabel!
     @IBOutlet weak var diaryEntryDetailsLabel: UILabel!
     @IBOutlet weak var diaryEntryCreatedOrModifiedOnDateLabel: UILabel!
+    @IBOutlet weak var diaryEntryLocationLabel: UILabel!
     
     
 }

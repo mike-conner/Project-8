@@ -10,6 +10,8 @@
 		131375CD227DD6EE00730FB1 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131375CC227DD6EE00730FB1 /* LocationViewController.swift */; };
 		131375CF227DE40500730FB1 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131375CE227DE40500730FB1 /* LocationSearchTable.swift */; };
 		131375D1227DEDF100730FB1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131375D0227DEDF100730FB1 /* Protocols.swift */; };
+		13251CFA227E4FF40063BC5F /* DiaryEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13251CF8227E4FF40063BC5F /* DiaryEntry+CoreDataClass.swift */; };
+		13251CFB227E4FF40063BC5F /* DiaryEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13251CF9227E4FF40063BC5F /* DiaryEntry+CoreDataProperties.swift */; };
 		138E36A72277C25600AC33BF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138E36A62277C25600AC33BF /* Extensions.swift */; };
 		13E495C52274EECD00A4F431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E495C42274EECD00A4F431 /* AppDelegate.swift */; };
 		13E495C82274EECD00A4F431 /* MyDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13E495C62274EECD00A4F431 /* MyDiary.xcdatamodeld */; };
@@ -18,8 +20,6 @@
 		13E495CF2274EECD00A4F431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E495CD2274EECD00A4F431 /* Main.storyboard */; };
 		13E495D12274EECD00A4F431 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E495D02274EECD00A4F431 /* Assets.xcassets */; };
 		13E495D42274EECD00A4F431 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E495D22274EECD00A4F431 /* LaunchScreen.storyboard */; };
-		13E495E12274F08200A4F431 /* DiaryEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E495DF2274F08200A4F431 /* DiaryEntry+CoreDataClass.swift */; };
-		13E495E42274F0A700A4F431 /* DiaryEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E495E32274F0A700A4F431 /* DiaryEntry+CoreDataProperties.swift */; };
 		13E495E62274F33F00A4F431 /* DiaryEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E495E52274F33F00A4F431 /* DiaryEntryCell.swift */; };
 		13E495E82274F71600A4F431 /* NewDiaryEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E495E72274F71600A4F431 /* NewDiaryEntryViewController.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +28,8 @@
 		131375CC227DD6EE00730FB1 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		131375CE227DE40500730FB1 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		131375D0227DEDF100730FB1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		13251CF8227E4FF40063BC5F /* DiaryEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
+		13251CF9227E4FF40063BC5F /* DiaryEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		138E36A62277C25600AC33BF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		13E495C12274EECD00A4F431 /* MyDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E495C42274EECD00A4F431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,8 +40,6 @@
 		13E495D02274EECD00A4F431 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13E495D32274EECD00A4F431 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13E495D52274EECD00A4F431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13E495DF2274F08200A4F431 /* DiaryEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
-		13E495E32274F0A700A4F431 /* DiaryEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		13E495E52274F33F00A4F431 /* DiaryEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryCell.swift; sourceTree = "<group>"; };
 		13E495E72274F71600A4F431 /* NewDiaryEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiaryEntryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,8 +118,8 @@
 		13E495DE2274EF1E00A4F431 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				13E495DF2274F08200A4F431 /* DiaryEntry+CoreDataClass.swift */,
-				13E495E32274F0A700A4F431 /* DiaryEntry+CoreDataProperties.swift */,
+				13251CF8227E4FF40063BC5F /* DiaryEntry+CoreDataClass.swift */,
+				13251CF9227E4FF40063BC5F /* DiaryEntry+CoreDataProperties.swift */,
 				13E495C62274EECD00A4F431 /* MyDiary.xcdatamodeld */,
 				13E495E52274F33F00A4F431 /* DiaryEntryCell.swift */,
 			);
@@ -197,17 +197,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13251CFB227E4FF40063BC5F /* DiaryEntry+CoreDataProperties.swift in Sources */,
 				13E495E82274F71600A4F431 /* NewDiaryEntryViewController.swift in Sources */,
 				138E36A72277C25600AC33BF /* Extensions.swift in Sources */,
 				13E495E62274F33F00A4F431 /* DiaryEntryCell.swift in Sources */,
 				131375D1227DEDF100730FB1 /* Protocols.swift in Sources */,
-				13E495E42274F0A700A4F431 /* DiaryEntry+CoreDataProperties.swift in Sources */,
 				13E495C52274EECD00A4F431 /* AppDelegate.swift in Sources */,
 				131375CF227DE40500730FB1 /* LocationSearchTable.swift in Sources */,
 				131375CD227DD6EE00730FB1 /* LocationViewController.swift in Sources */,
-				13E495E12274F08200A4F431 /* DiaryEntry+CoreDataClass.swift in Sources */,
 				13E495C82274EECD00A4F431 /* MyDiary.xcdatamodeld in Sources */,
 				13E495CA2274EECD00A4F431 /* MasterViewController.swift in Sources */,
+				13251CFA227E4FF40063BC5F /* DiaryEntry+CoreDataClass.swift in Sources */,
 				13E495CC2274EECD00A4F431 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

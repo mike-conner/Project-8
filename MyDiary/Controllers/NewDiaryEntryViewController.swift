@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import MapKit
 
 class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var diaryEntryDate: UILabel!
     @IBOutlet weak var diaryEntryDetails: UITextView!
     @IBOutlet weak var cancelNewDiaryEntryButton: UIBarButtonItem!
+    @IBOutlet weak var addLocationButton: UIButton!
     
     @IBAction func saveNewDiaryEntryButton(_ sender: Any) {
         if diaryEntryDetails.text == "" {
@@ -23,8 +25,17 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
         saveDiaryEntry()
     }
     
-    @IBAction func addLocationButton(_ sender: Any) {
-        performSegue(withIdentifier: "goToLocationViewController", sender: self)
+//    @IBAction func addLocationButton(_ sender: Any) {
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "goToLocationViewController" {
+                let navigationController = segue.destination as! UINavigationController
+                let destinationViewController = navigationController.topViewController as! LocationViewController
+                destinationViewController.delegate = self
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -48,6 +59,7 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
         diaryEntry.setValue(diaryEntryDetails.text, forKeyPath: "diaryEntryDetails")
         diaryEntry.setValue(Date(), forKeyPath: "diaryEntryDate")
         diaryEntry.setValue(Date(), forKeyPath: "diaryEntryCreatedOrModifiedOnDate")
+        diaryEntry.setValue(addLocationButton.title(for: .normal) , forKey: "diaryEntryLocation")
         
         do {
             try managedContext.save()
@@ -55,6 +67,14 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
     }
 }
+
+extension NewDiaryEntryViewController: LocationDelegate {
+    func getLocation(placemark: String) {
+        addLocationButton.setTitle(placemark, for: .normal)
+    }
+}
+
+
+
