@@ -24,12 +24,14 @@ class DetailViewController: UIViewController {
             diaryEntryDetailsTextView.isEditable = true
             diaryEntryDetailsTextView.becomeFirstResponder()
             editDiaryEntryButton.title = "Save"
+            addLocationButton.isEnabled = true
             editState = true
         } else {
             self.performSegue(withIdentifier: "finishedSaving", sender: self)
             updateDiaryEntry()
             diaryEntryDetailsTextView.isEditable = false
             editDiaryEntryButton.title = "Edit"
+            addLocationButton.isEnabled = false
             editState = false
         }
     }
@@ -51,6 +53,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        addLocationButton.isEnabled = false
     }
 
     var detailItem: DiaryEntry? {
