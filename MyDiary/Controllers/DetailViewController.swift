@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var diaryEntryDetailsTextView: UITextView!
     @IBOutlet weak var saveDiaryEntryButton: UIButton!
     @IBOutlet weak var editDiaryEntryButton: UIBarButtonItem!
+    @IBOutlet weak var addLocationButton: UIButton!
     
     var editState: Bool = false
 
@@ -57,6 +58,16 @@ class DetailViewController: UIViewController {
             configureView()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "goToLocationVCFromEditVC" {
+                let navigationController = segue.destination as! UINavigationController
+                let destinationViewController = navigationController.topViewController as! LocationViewController
+                destinationViewController.editedEntryDelegate = self
+            }
+        }
+    }
 
     func updateDiaryEntry() {
         
@@ -67,6 +78,7 @@ class DetailViewController: UIViewController {
         do {
             detailItem?.setValue(diaryEntryDetailsTextView.text, forKey: "diaryEntryDetails")
             detailItem?.setValue(Date(), forKey: "diaryEntryCreatedOrModifiedOnDate")
+            detailItem?.setValue(addLocationButton.title(for: .normal) , forKey: "diaryEntryLocation")
             do {
                 try managedContext.save()
             } catch {
@@ -77,3 +89,8 @@ class DetailViewController: UIViewController {
 
 }
 
+extension DetailViewController: LocationDelegate {
+    func getLocation(placemark: String) {
+        addLocationButton.setTitle(placemark, for: .normal)
+    }
+}

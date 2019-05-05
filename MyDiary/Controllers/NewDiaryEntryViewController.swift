@@ -25,15 +25,12 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
         saveDiaryEntry()
     }
     
-//    @IBAction func addLocationButton(_ sender: Any) {
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
-            if identifier == "goToLocationViewController" {
+            if identifier == "goToLocationVCFromNewEntryVC" {
                 let navigationController = segue.destination as! UINavigationController
                 let destinationViewController = navigationController.topViewController as! LocationViewController
-                destinationViewController.delegate = self
+                destinationViewController.newEntryDelegate = self
             }
         }
     }

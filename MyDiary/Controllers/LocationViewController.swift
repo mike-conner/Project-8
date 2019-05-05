@@ -16,7 +16,8 @@ class LocationViewController : UIViewController {
     
     var startingLocation: String = ""
     
-    weak var delegate: NewDiaryEntryViewController!
+    weak var newEntryDelegate: NewDiaryEntryViewController!
+    weak var editedEntryDelegate: DetailViewController!
         
     @IBOutlet weak var mapView: MKMapView!
     
@@ -24,8 +25,14 @@ class LocationViewController : UIViewController {
         if selectedPin == nil {
             showAlert(with: "Sorry", and: "Please search and select a location.")
         } else {
-            delegate.getLocation(placemark: startingLocation)
-            dismiss(animated: true, completion: nil)
+            if newEntryDelegate != nil {
+                newEntryDelegate.getLocation(placemark: startingLocation)
+                dismiss(animated: true, completion: nil)
+            } else if editedEntryDelegate != nil {
+                editedEntryDelegate.getLocation(placemark: startingLocation)
+                // dismiss(animated: true, completion: nil)
+                
+            }
         }
     }
     

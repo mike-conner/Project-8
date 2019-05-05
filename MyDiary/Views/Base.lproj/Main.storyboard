@@ -67,17 +67,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kul-rK-jcD">
+                                <rect key="frame" x="8" y="372" width="83" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="AhM-dA-Ywb"/>
+                                    <constraint firstAttribute="height" constant="24" id="u9V-1X-t8j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="6ze-b8-ICm">
+                                <rect key="frame" x="107" y="372" width="291" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="LRf-wu-IUl"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="Y92-cU-qyl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="add location"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="vUB-1V-tSQ" secondAttribute="trailing" constant="8" id="0jd-gq-1c3"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="GFF-QO-8AL" secondAttribute="trailing" constant="8" id="2Bj-5l-jnc"/>
                             <constraint firstItem="PuF-th-pHE" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="8" id="2hG-3I-YMT"/>
+                            <constraint firstItem="Kul-rK-jcD" firstAttribute="top" secondItem="vUB-1V-tSQ" secondAttribute="bottom" constant="16" id="4Fc-as-Vni"/>
                             <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="PuF-th-pHE" secondAttribute="trailing" constant="8" id="4wm-oe-M3y"/>
                             <constraint firstItem="PuF-th-pHE" firstAttribute="top" secondItem="GFF-QO-8AL" secondAttribute="bottom" constant="40" id="6Bp-Bt-crR"/>
                             <constraint firstItem="GFF-QO-8AL" firstAttribute="top" secondItem="VUw-jc-0yf" secondAttribute="top" constant="20" id="EAb-aR-woa"/>
+                            <constraint firstItem="6ze-b8-ICm" firstAttribute="leading" secondItem="Kul-rK-jcD" secondAttribute="trailing" constant="16" id="IGi-qs-XCM"/>
                             <constraint firstItem="vUB-1V-tSQ" firstAttribute="top" secondItem="PuF-th-pHE" secondAttribute="bottom" constant="8" id="VXS-yo-h3i"/>
+                            <constraint firstItem="6ze-b8-ICm" firstAttribute="leading" secondItem="Kul-rK-jcD" secondAttribute="trailing" constant="16" id="dY7-2M-YLj"/>
                             <constraint firstItem="GFF-QO-8AL" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="8" id="gmh-9a-YbZ"/>
+                            <constraint firstItem="Kul-rK-jcD" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="8" id="i8X-5n-Snc"/>
+                            <constraint firstItem="6ze-b8-ICm" firstAttribute="top" secondItem="vUB-1V-tSQ" secondAttribute="bottom" constant="16" id="iJP-1U-M5E"/>
+                            <constraint firstItem="VUw-jc-0yf" firstAttribute="trailing" secondItem="6ze-b8-ICm" secondAttribute="trailing" constant="16" id="k6V-Lz-y2V"/>
                             <constraint firstItem="vUB-1V-tSQ" firstAttribute="leading" secondItem="VUw-jc-0yf" secondAttribute="leading" constant="8" id="ooy-mF-NHW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
@@ -91,6 +116,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addLocationButton" destination="6ze-b8-ICm" id="Wmz-kG-Q3g"/>
                         <outlet property="diaryEntryDateLabel" destination="GFF-QO-8AL" id="bgw-6y-BzQ"/>
                         <outlet property="diaryEntryDetailsTextView" destination="vUB-1V-tSQ" id="l4B-ia-Bax"/>
                         <outlet property="editDiaryEntryButton" destination="EWa-03-70A" id="DzJ-wB-Uve"/>
@@ -293,7 +319,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="add location"/>
                                 <connections>
-                                    <segue destination="A02-nE-iR0" kind="show" identifier="goToLocationViewController" id="njD-Ya-xfZ"/>
+                                    <segue destination="A02-nE-iR0" kind="show" identifier="goToLocationVCFromNewEntryVC" id="njD-Ya-xfZ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqx-TQ-oIr">
@@ -382,7 +408,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHc-ki-SAF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2926" y="850"/>
+            <point key="canvasLocation" x="2532" y="858"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="WpE-4S-5Jt">
@@ -427,7 +453,7 @@
                     <navigationItem key="navigationItem" id="8V6-7M-r4T">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="chC-mq-6zN">
                             <connections>
-                                <action selector="backButton:" destination="VIu-vp-1el" id="Vq4-NB-qhz"/>
+                                <action selector="backButton:" destination="VIu-vp-1el" id="q9U-j2-anF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -437,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71x-wI-086" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2226" y="850"/>
+            <point key="canvasLocation" x="1832" y="858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
@@ -471,10 +497,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8p-Du-xGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="850"/>
+            <point key="canvasLocation" x="1113" y="858"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>
