@@ -85,6 +85,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="add location"/>
+                                <connections>
+                                    <segue destination="A02-nE-iR0" kind="presentation" identifier="goToLocationVCFromEditVC" id="cci-Ml-eIO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -484,6 +487,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ZDJ-P9-dxB">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8p-Du-xGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A02-nE-iR0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="In3-4w-NhD">
@@ -495,12 +499,12 @@
                         <segue destination="VIu-vp-1el" kind="relationship" relationship="rootViewController" id="sPq-0Q-deH"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l8p-Du-xGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1113" y="858"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="cci-Ml-eIO"/>
         <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>

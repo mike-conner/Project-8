@@ -30,8 +30,7 @@ class LocationViewController : UIViewController {
                 dismiss(animated: true, completion: nil)
             } else if editedEntryDelegate != nil {
                 editedEntryDelegate.getLocation(placemark: startingLocation)
-                // dismiss(animated: true, completion: nil)
-                
+                dismiss(animated: true, completion: nil)
             }
         }
     }
