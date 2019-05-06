@@ -25,6 +25,11 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
         saveDiaryEntry()
     }
     
+    override func viewDidLoad() {
+        getDate()
+        diaryEntryDetails.becomeFirstResponder()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "goToLocationVCFromNewEntryVC" {
@@ -33,11 +38,6 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
                 destinationViewController.newEntryDelegate = self
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        getDate()
-        diaryEntryDetails.becomeFirstResponder()
     }
     
     func getDate() {
@@ -61,17 +61,13 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
         do {
             try managedContext.save()
             dismiss(animated: true, completion: nil)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        } catch {
+            showAlert(with: "Uh-oh", and: "Something went wrong and your entry cannot be saved at this time.")
         }
     }
 }
 
-extension NewDiaryEntryViewController: LocationDelegate {
-    func getLocation(placemark: String) {
-        addLocationButton.setTitle(placemark, for: .normal)
-    }
-}
+
 
 
 

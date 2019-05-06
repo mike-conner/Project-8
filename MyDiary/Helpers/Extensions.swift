@@ -17,4 +17,17 @@ extension UIViewController {
     }
 }
 
+extension DetailViewController: LocationDelegate {
+    func getLocation(placemark: String) {
+        addLocationButton.setTitle(placemark, for: .normal)
+    }
+}
+
+extension NewDiaryEntryViewController: LocationDelegate {
+    func getLocation(placemark: String) {
+        addLocationButton.setTitle(placemark, for: .normal)
+    }
+}
+
+
 

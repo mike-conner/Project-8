@@ -18,6 +18,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var addLocationButton: UIButton!
     
     var editState: Bool = false
+    
+    var detailItem: DiaryEntry? {
+        didSet {
+            configureView()
+        }
+    }
 
     @IBAction func editEntryButton(_ sender: Any) {
         if editState == false {
@@ -36,6 +42,22 @@ class DetailViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+        addLocationButton.isEnabled = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "goToLocationVCFromEditVC" {
+                let navigationController = segue.destination as! UINavigationController
+                let destinationViewController = navigationController.topViewController as! LocationViewController
+                destinationViewController.editedEntryDelegate = self
+            }
+        }
+    }
+    
     func configureView() {
         if let detail = detailItem {
             if let date = diaryEntryDateLabel {
@@ -50,33 +72,9 @@ class DetailViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureView()
-        addLocationButton.isEnabled = false
-    }
-
-    var detailItem: DiaryEntry? {
-        didSet {
-            configureView()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "goToLocationVCFromEditVC" {
-                let navigationController = segue.destination as! UINavigationController
-                let destinationViewController = navigationController.topViewController as! LocationViewController
-                destinationViewController.editedEntryDelegate = self
-            }
-        }
-    }
-
     func updateDiaryEntry() {
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         
         do {
             detailItem?.setValue(diaryEntryDetailsTextView.text, forKey: "diaryEntryDetails")
@@ -85,15 +83,9 @@ class DetailViewController: UIViewController {
             do {
                 try managedContext.save()
             } catch {
-                print(error)
+                showAlert(with: "Uh-oh", and: "Something went wrong and your entry cannot be saved at this time.")
             }
         }
     }
-
 }
 
-extension DetailViewController: LocationDelegate {
-    func getLocation(placemark: String) {
-        addLocationButton.setTitle(placemark, for: .normal)
-    }
-}
