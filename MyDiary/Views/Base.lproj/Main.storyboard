@@ -17,8 +17,11 @@
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,9 +155,11 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="240" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" red="0.018330076709389687" green="0.49739444255828857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="diaryEntryCell" id="WCw-Qf-5nD" customClass="DiaryEntryCell" customModule="MyDiary" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="diaryEntryCell" id="WCw-Qf-5nD" customClass="DiaryEntryCell" customModule="MyDiary" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
@@ -163,58 +168,64 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;diary date&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9h-zo-zbF">
                                             <rect key="frame" x="8" y="8" width="398" height="25"/>
+                                            <color key="tintColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="vsp-in-UH7"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR9-dd-pk8">
                                             <rect key="frame" x="28" y="49" width="358" height="122"/>
+                                            <color key="tintColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="oqA-RD-B4K"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Created/Modified On:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nl-wG-QNc">
                                             <rect key="frame" x="223.5" y="179" width="162.5" height="17"/>
+                                            <color key="tintColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="iJb-01-GBz"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIU-DV-bkc">
                                             <rect key="frame" x="28" y="179" width="56" height="17"/>
+                                            <color key="tintColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="E1m-JU-uUy"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;location&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="zE0-uG-0dw">
                                             <rect key="frame" x="28" y="204" width="160" height="17"/>
+                                            <color key="tintColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="6L8-Hx-2ub"/>
                                                 <constraint firstAttribute="height" constant="17" id="R04-i7-hJo"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="&lt;date&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="XY6-sv-huq">
                                             <rect key="frame" x="204" y="204" width="182" height="17"/>
+                                            <color key="tintColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="2mW-Rq-aJf"/>
                                                 <constraint firstAttribute="height" constant="17" id="7eQ-fQ-GkF"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.01833007671" green="0.49739444259999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -239,7 +250,7 @@
                                         <constraint firstItem="jR9-dd-pk8" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" constant="8" id="kif-w1-TrG"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="diaryEntryCreatedOrModifiedOnDateLabel" destination="XY6-sv-huq" id="crt-hu-kCW"/>
                                     <outlet property="diaryEntryDateLabel" destination="g9h-zo-zbF" id="EIG-Et-Twp"/>
@@ -487,7 +498,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ZDJ-P9-dxB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l8p-Du-xGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A02-nE-iR0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="In3-4w-NhD">
@@ -499,12 +509,13 @@
                         <segue destination="VIu-vp-1el" kind="relationship" relationship="rootViewController" id="sPq-0Q-deH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8p-Du-xGZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1113" y="858"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cci-Ml-eIO"/>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

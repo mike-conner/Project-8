@@ -14,6 +14,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
     
+    var colorMonitoringVariable: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -76,7 +78,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         configureCell(cell, withEvent: event)
         
+        cell.layer.cornerRadius = 30
+        cell.layer.masksToBounds = true
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.white
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
