@@ -25,6 +25,8 @@ class DetailViewController: UIViewController {
             diaryEntryDetailsTextView.becomeFirstResponder()
             editDiaryEntryButton.title = "Save"
             addLocationButton.isEnabled = true
+            addLocationButton.backgroundColor = .white
+            addLocationButton.setTitleColor(UIColor(red: 0.0196, green: 0.498, blue: 1, alpha: 1), for: .normal)
             editState = true
         } else {
             self.performSegue(withIdentifier: "finishedSaving", sender: self)
@@ -47,6 +49,10 @@ class DetailViewController: UIViewController {
             if let details = diaryEntryDetailsTextView {
                 details.text = detail.diaryEntryDetails!.description
             }
+            if let location = addLocationButton {
+                if location.titleLabel?.text == "add location" {
+                    location.setTitle("no location entered", for: .normal)                }
+            }
         }
     }
 
@@ -54,6 +60,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         addLocationButton.isEnabled = false
+        diaryEntryDetailsTextView.layer.cornerRadius = 20
+        diaryEntryDetailsTextView.layer.masksToBounds = true
+        addLocationButton.layer.cornerRadius = 10
+        addLocationButton.layer.masksToBounds = true
     }
 
     var detailItem: DiaryEntry? {

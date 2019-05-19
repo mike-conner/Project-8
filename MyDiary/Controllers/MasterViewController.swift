@@ -18,7 +18,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = editButtonItem
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
@@ -119,6 +118,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         configuredCell.diaryEntryCreatedOrModifiedOnDateLabel.text = date
         configuredCell.diaryEntryDetailsLabel.text = event.diaryEntryDetails
         configuredCell.diaryEntryLocationLabel.text = event.diaryEntryLocation
+        
+        if configuredCell.diaryEntryLocationLabel.text == "add location" as String {
+            configuredCell.diaryEntryLocationLabel.text = "no location entered"
+        }
     }
 
     // MARK: - Fetched results controller
@@ -203,7 +206,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
      
     func controllerDidChangeContent(controller: NSFetchedResultsController<NSFetchRequestResult>) {
          // In the simplest, most efficient, case, reload the table view.
-         tableView.reloadData()
+        tableView.reloadData()
      }
 }
 
