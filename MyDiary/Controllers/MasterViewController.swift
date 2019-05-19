@@ -113,7 +113,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         configuredCell.diaryEntryDetailsLabel.text = event.diaryEntryDetails
         configuredCell.diaryEntryLocationLabel.text = event.diaryEntryLocation
         
-        if configuredCell.diaryEntryLocationLabel.text == "add location" as String {
+        if configuredCell.diaryEntryLocationLabel.text == " add location " as String {
             configuredCell.diaryEntryLocationLabel.text = "no location entered"
         }
     }
