@@ -26,7 +26,7 @@ class DetailViewController: UIViewController {
             editDiaryEntryButton.title = "Save"
             addLocationButton.isEnabled = true
             addLocationButton.backgroundColor = .white
-            if addLocationButton.title(for: .normal) != "no location entered" {
+            if addLocationButton.title(for: .normal) != " add location " {
                 addLocationButton.setTitle(" update location ", for: .normal)
             } else {
                 addLocationButton.setTitle(" add location ", for: .normal)
