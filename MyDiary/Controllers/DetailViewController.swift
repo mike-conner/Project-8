@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
             editDiaryEntryButton.title = "Save"
             addLocationButton.isEnabled = true
             addLocationButton.backgroundColor = .white
+            addLocationButton.setTitle("add location", for: .normal)
             addLocationButton.setTitleColor(UIColor(red: 0.0196, green: 0.498, blue: 1, alpha: 1), for: .normal)
             editState = true
         } else {
@@ -49,9 +50,12 @@ class DetailViewController: UIViewController {
             if let details = diaryEntryDetailsTextView {
                 details.text = detail.diaryEntryDetails!.description
             }
-            if let location = addLocationButton {
-                if location.titleLabel?.text == "add location" {
-                    location.setTitle("no location entered", for: .normal)                }
+            if let _ = addLocationButton {
+                if detail.diaryEntryLocation?.description != "add location" {
+                    addLocationButton.setTitle("\(detail.diaryEntryLocation?.description ?? "Error")", for: .normal)
+                } else {
+                    addLocationButton.setTitle("no location entered", for: .normal)
+                }
             }
         }
     }
