@@ -13,23 +13,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
  
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-    
-    var colorMonitoringVariable: Int = 0
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.leftBarButtonItem = editButtonItem
-
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
         navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -201,11 +195,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return formatter.string(from: date)
     }
 
-    
-     // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
-     
     func controllerDidChangeContent(controller: NSFetchedResultsController<NSFetchRequestResult>) {
-         // In the simplest, most efficient, case, reload the table view.
         tableView.reloadData()
      }
 }

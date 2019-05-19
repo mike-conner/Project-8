@@ -38,15 +38,22 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
     override func viewDidLoad() {
         getDate()
         diaryEntryDetails.becomeFirstResponder()
+        diaryEntryDetails.layer.cornerRadius = 20
+        diaryEntryDetails.layer.masksToBounds = true
+        addLocationButton.layer.cornerRadius = 10
+        addLocationButton.layer.masksToBounds = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+        
     func getDate() {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEEE, MMM d, yyyy"
         let todaysDate = formatter.string(from: Date())
         diaryEntryDate.text = todaysDate
     }
-
     
     func saveDiaryEntry() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -69,7 +76,7 @@ class NewDiaryEntryViewController: UIViewController, NSFetchedResultsControllerD
 
 extension NewDiaryEntryViewController: LocationDelegate {
     func getLocation(placemark: String) {
-        addLocationButton.setTitle(placemark, for: .normal)
+        addLocationButton.setTitle(" \(placemark) ", for: .normal)
     }
 }
 

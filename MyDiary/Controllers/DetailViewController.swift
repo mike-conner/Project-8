@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var editDiaryEntryButton: UIBarButtonItem!
     @IBOutlet weak var addLocationButton: UIButton!
     
-    var editState: Bool = false
+    var editState: Bool = false // used to monitor whether the user is editing or viewing the entry.
 
     @IBAction func editEntryButton(_ sender: Any) {
         if editState == false {
@@ -26,7 +26,12 @@ class DetailViewController: UIViewController {
             editDiaryEntryButton.title = "Save"
             addLocationButton.isEnabled = true
             addLocationButton.backgroundColor = .white
-            addLocationButton.setTitle("add location", for: .normal)
+            if addLocationButton.title(for: .normal) != "no location entered" {
+                addLocationButton.setTitle(" update location ", for: .normal)
+            } else {
+                addLocationButton.setTitle(" add location ", for: .normal)
+            }
+            
             addLocationButton.setTitleColor(UIColor(red: 0.0196, green: 0.498, blue: 1, alpha: 1), for: .normal)
             editState = true
         } else {
@@ -109,5 +114,14 @@ class DetailViewController: UIViewController {
 extension DetailViewController: LocationDelegate {
     func getLocation(placemark: String) {
         addLocationButton.setTitle(placemark, for: .normal)
+    }
+}
+
+extension UIViewController {
+    func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }

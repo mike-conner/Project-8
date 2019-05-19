@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class LocationViewController : UIViewController {
+    
     let locationManager = CLLocationManager()
     var resultSearchController: UISearchController? = nil
     var selectedPin: MKPlacemark? = nil
@@ -56,6 +57,11 @@ class LocationViewController : UIViewController {
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
         navigationItem.titleView = resultSearchController?.searchBar
+        
+        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = UIColor(red: 0.0196, green: 0.498, blue: 1.0, alpha: 1.0)
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
